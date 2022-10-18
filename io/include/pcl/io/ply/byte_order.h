@@ -40,7 +40,7 @@
 #ifndef PCL_IO_PLY_BYTE_ORDER_H
 #define PCL_IO_PLY_BYTE_ORDER_H
 
-#include <boost/detail/endian.hpp>
+#include <boost/predef/other/endian.h>
 
 namespace pcl
 {
@@ -58,9 +58,9 @@ namespace pcl
       {
         little_endian_byte_order,
         big_endian_byte_order,
-#if defined(BOOST_BIG_ENDIAN)
+#if BOOST_ENDIAN_BIG_BYTE
         host_byte_order = big_endian_byte_order,
-#elif defined(BOOST_LITTLE_ENDIAN)
+#elif BOOST_ENDIAN_LITTLE_BYTE
         host_byte_order = little_endian_byte_order,
 #else
 #error "unable to determine system endianness"
